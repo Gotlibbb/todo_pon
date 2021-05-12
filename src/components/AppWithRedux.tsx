@@ -1,6 +1,5 @@
 import React, {useCallback, useEffect} from 'react'
-import {AppBar, Button, CircularProgress, IconButton, LinearProgress, Toolbar, Typography} from '@material-ui/core';
-import {Menu} from '@material-ui/icons';
+import {AppBar, Button, CircularProgress, LinearProgress, Toolbar, Typography} from '@material-ui/core';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppRootStateType} from '../state/store';
 import {ErrorSnackBar} from "../utils/ErrorSnackBar";
@@ -32,22 +31,19 @@ function AppWithRedux({demo = false}: AppPropsType) {
     )
 
 
-    if (!initialized) return <CircularProgress/>
+    if (!initialized) return <div style={{textAlign: "center", paddingTop: "400px"}}><CircularProgress /></div>
 
     return (
         <BrowserRouter>
-            <div className="App">
+            <div>
                 <AppBar position="static">
                     <Toolbar>
-                        <IconButton edge="start" color="inherit" aria-label="menu">
-                            <Menu/>
-                        </IconButton>
                         <Typography variant="h6">
-                            News
+                            TodoList
                         </Typography>
 
                         {authorized &&
-                        <Button color="inherit" onClick={logOutHandler}>Logout</Button>}
+                        <div style={{width: "100%" }}><Button style={{float: "right"}} color="inherit" onClick={logOutHandler}>Logout</Button></div>}
                     </Toolbar>
 
                 </AppBar>
